@@ -32,6 +32,7 @@ export class BaileysControllerFacade {
       findAllChats: ControllerInterface;
       updateMessage: ControllerInterface;
       deleteMessage: ControllerInterface;
+      findByIdMessage: ControllerInterface;
     },
   ) { }
 
@@ -123,5 +124,9 @@ export class BaileysControllerFacade {
 
   get listInstances() {
     return this.props.listInstances;
+  }
+
+  get findByIdMessage() {
+    return this.props.findByIdMessage;
   }
 }

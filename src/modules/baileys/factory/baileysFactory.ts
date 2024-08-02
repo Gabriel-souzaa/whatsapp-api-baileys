@@ -34,6 +34,7 @@ import { UpdateTextMessageUseCase } from '../usecase/message/update-message/upda
 import { DeleteTextMessageUseCase } from '../usecase/message/delete-message/delete-message.useCase';
 import { logger } from '../../@shared/infra/logger';
 import { ListInstancesUsecase } from '../usecase/instance/list/list-instances.usecase';
+import { FindByIdMessageUseCase } from '../usecase/message/find-by-id-message/find-by-id-messages.usecase';
 
 export class BaileysFactory {
   static create() {
@@ -95,6 +96,7 @@ export class BaileysFactory {
     const findAllChats = new FindAllChatsUseCase(chatRepository);
     const updateMessage = new UpdateTextMessageUseCase(baileysManager);
     const deleteMessage = new DeleteTextMessageUseCase(baileysManager);
+    const findByIdMessage = new FindByIdMessageUseCase(messageRepository);
 
     return new BaileysFacade({
       initUseCase,
@@ -125,7 +127,8 @@ export class BaileysFactory {
       findAllChats,
       deleteMessage,
       updateMessage,
-      listInstances
+      listInstances,
+      findByIdMessage
     });
   }
 }

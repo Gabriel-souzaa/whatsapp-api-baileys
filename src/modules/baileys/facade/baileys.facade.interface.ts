@@ -20,6 +20,7 @@ interface MessageService {
   findAllChats(input: dto.FindAllChatsUseCaseDto): Promise<any>;
   updateMessage(input: dto.UpdateTextMessageUseCaseDto): Promise<any>;
   deleteMessage(input: dto.DeleteTextMessageUseCaseDto): Promise<any>;
+  findByIdMessage(input: dto.FindByIdMessageUseCaseDto): Promise<any>;
 }
 
 interface GroupService {

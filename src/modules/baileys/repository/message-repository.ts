@@ -27,4 +27,13 @@ export class MessageRepository {
 
     return messages;
   }
+
+  async findById({ id, to }: { id: string, to: string }) {
+    const messages = await this.messageCollection
+      .find({ remoteJid: to, id })
+      .sort({ 'messageTimestamp.low': -1, messageTimestamp: 1 })
+      .toArray();
+
+    return messages;
+  }
 }
